@@ -48,14 +48,14 @@ namespace ReflectiveCode.GMinder
             this.eventWhat = new System.Windows.Forms.Label();
             this.eventWhen = new System.Windows.Forms.Label();
             this.reminderFormTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.agenda = new Agenda();
+            this.agenda = new ReflectiveCode.GMinder.Controls.Agenda();
             this.reminderButtonsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.newButton = new System.Windows.Forms.Button();
+            this.openButton = new System.Windows.Forms.Button();
+            this.dismissButton = new System.Windows.Forms.Button();
             this.snoozeLengthInteger = new ReflectiveCode.GMinder.Controls.IntegerUpDown();
             this.snoozeButton = new System.Windows.Forms.Button();
             this.hideButton = new System.Windows.Forms.Button();
-            this.newButton = new System.Windows.Forms.Button();
-            this.dismissButton = new System.Windows.Forms.Button();
-            this.openButton = new System.Windows.Forms.Button();
             this.minuteTimer = new System.Windows.Forms.Timer(this.components);
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.snoozeTimer = new System.Windows.Forms.Timer(this.components);
@@ -87,64 +87,64 @@ namespace ReflectiveCode.GMinder
             this.aboutTrayMenuItem,
             this.exitTrayMenuItem});
             this.trayMenu.Name = "contextMenuStrip1";
-            this.trayMenu.Size = new System.Drawing.Size(160, 192);
+            this.trayMenu.Size = new System.Drawing.Size(157, 170);
             // 
             // calendarsTrayMenuItem
             // 
             this.calendarsTrayMenuItem.Name = "calendarsTrayMenuItem";
-            this.calendarsTrayMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.calendarsTrayMenuItem.Size = new System.Drawing.Size(156, 22);
             this.calendarsTrayMenuItem.Text = "Calendars";
             this.calendarsTrayMenuItem.Click += new System.EventHandler(this.HandleTrayCalendars);
             // 
             // optionsTrayMenuItem
             // 
             this.optionsTrayMenuItem.Name = "optionsTrayMenuItem";
-            this.optionsTrayMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.optionsTrayMenuItem.Size = new System.Drawing.Size(156, 22);
             this.optionsTrayMenuItem.Text = "Options";
             this.optionsTrayMenuItem.Click += new System.EventHandler(this.HandleTrayOptions);
             // 
             // trayMenuToolStripSeparator2
             // 
             this.trayMenuToolStripSeparator2.Name = "trayMenuToolStripSeparator2";
-            this.trayMenuToolStripSeparator2.Size = new System.Drawing.Size(156, 6);
+            this.trayMenuToolStripSeparator2.Size = new System.Drawing.Size(153, 6);
             // 
             // resetTrayMenuItem
             // 
             this.resetTrayMenuItem.Name = "resetTrayMenuItem";
-            this.resetTrayMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.resetTrayMenuItem.Size = new System.Drawing.Size(156, 22);
             this.resetTrayMenuItem.Text = "Clear Events";
             this.resetTrayMenuItem.Click += new System.EventHandler(this.HandleTrayReset);
             // 
             // refreshTrayMenuItem
             // 
             this.refreshTrayMenuItem.Name = "refreshTrayMenuItem";
-            this.refreshTrayMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.refreshTrayMenuItem.Size = new System.Drawing.Size(156, 22);
             this.refreshTrayMenuItem.Text = "Refresh Events";
             this.refreshTrayMenuItem.Click += new System.EventHandler(this.HandleTrayRefresh);
             // 
             // addTrayMenuItem
             // 
             this.addTrayMenuItem.Name = "addTrayMenuItem";
-            this.addTrayMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.addTrayMenuItem.Size = new System.Drawing.Size(156, 22);
             this.addTrayMenuItem.Text = "Add Event";
             this.addTrayMenuItem.Click += new System.EventHandler(this.HandleAddButton);
             // 
             // trayMenuToolStripSeparator1
             // 
             this.trayMenuToolStripSeparator1.Name = "trayMenuToolStripSeparator1";
-            this.trayMenuToolStripSeparator1.Size = new System.Drawing.Size(156, 6);
+            this.trayMenuToolStripSeparator1.Size = new System.Drawing.Size(153, 6);
             // 
             // aboutTrayMenuItem
             // 
             this.aboutTrayMenuItem.Name = "aboutTrayMenuItem";
-            this.aboutTrayMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.aboutTrayMenuItem.Size = new System.Drawing.Size(156, 22);
             this.aboutTrayMenuItem.Text = "About GMinder";
             this.aboutTrayMenuItem.Click += new System.EventHandler(this.HandleTrayAbout);
             // 
             // exitTrayMenuItem
             // 
             this.exitTrayMenuItem.Name = "exitTrayMenuItem";
-            this.exitTrayMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.exitTrayMenuItem.Size = new System.Drawing.Size(156, 22);
             this.exitTrayMenuItem.Text = "Exit";
             this.exitTrayMenuItem.Click += new System.EventHandler(this.HandleTrayExit);
             // 
@@ -253,6 +253,44 @@ namespace ReflectiveCode.GMinder
             this.reminderButtonsTableLayoutPanel.Size = new System.Drawing.Size(459, 29);
             this.reminderButtonsTableLayoutPanel.TabIndex = 4;
             // 
+            // newButton
+            // 
+            this.newButton.AutoSize = true;
+            this.newButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.newButton.Location = new System.Drawing.Point(3, 3);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(39, 23);
+            this.newButton.TabIndex = 0;
+            this.newButton.Text = "New";
+            this.newButton.UseVisualStyleBackColor = true;
+            this.newButton.Click += new System.EventHandler(this.HandleAddButton);
+            // 
+            // openButton
+            // 
+            this.openButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.openButton.AutoSize = true;
+            this.openButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.openButton.Location = new System.Drawing.Point(48, 3);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(43, 23);
+            this.openButton.TabIndex = 1;
+            this.openButton.Text = "Open";
+            this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.HandleOpenButton);
+            // 
+            // dismissButton
+            // 
+            this.dismissButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dismissButton.AutoSize = true;
+            this.dismissButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dismissButton.Location = new System.Drawing.Point(97, 3);
+            this.dismissButton.Name = "dismissButton";
+            this.dismissButton.Size = new System.Drawing.Size(52, 23);
+            this.dismissButton.TabIndex = 2;
+            this.dismissButton.Text = "Dismiss";
+            this.dismissButton.UseVisualStyleBackColor = true;
+            this.dismissButton.Click += new System.EventHandler(this.HandleDismissClick);
+            // 
             // snoozeLengthInteger
             // 
             this.snoozeLengthInteger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -299,48 +337,10 @@ namespace ReflectiveCode.GMinder
             this.hideButton.UseVisualStyleBackColor = true;
             this.hideButton.Click += new System.EventHandler(this.HandleHideButton);
             // 
-            // newButton
-            // 
-            this.newButton.AutoSize = true;
-            this.newButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.newButton.Location = new System.Drawing.Point(3, 3);
-            this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(39, 23);
-            this.newButton.TabIndex = 0;
-            this.newButton.Text = "New";
-            this.newButton.UseVisualStyleBackColor = true;
-            this.newButton.Click += new System.EventHandler(this.HandleAddButton);
-            // 
-            // dismissButton
-            // 
-            this.dismissButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dismissButton.AutoSize = true;
-            this.dismissButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.dismissButton.Location = new System.Drawing.Point(97, 3);
-            this.dismissButton.Name = "dismissButton";
-            this.dismissButton.Size = new System.Drawing.Size(52, 23);
-            this.dismissButton.TabIndex = 2;
-            this.dismissButton.Text = "Dismiss";
-            this.dismissButton.UseVisualStyleBackColor = true;
-            this.dismissButton.Click += new System.EventHandler(this.HandleDismissClick);
-            // 
-            // openButton
-            // 
-            this.openButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.openButton.AutoSize = true;
-            this.openButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.openButton.Location = new System.Drawing.Point(48, 3);
-            this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(43, 23);
-            this.openButton.TabIndex = 1;
-            this.openButton.Text = "Open";
-            this.openButton.UseVisualStyleBackColor = true;
-            this.openButton.Click += new System.EventHandler(this.HandleOpenButton);
-            // 
             // minuteTimer
             // 
+            this.minuteTimer.Enabled = true;
             this.minuteTimer.Tick += new System.EventHandler(this.HandleMinuteTimerTick);
-            this.minuteTimer.Start();
             // 
             // refreshTimer
             // 
@@ -358,8 +358,6 @@ namespace ReflectiveCode.GMinder
             this.Controls.Add(this.reminderFormTableLayoutPanel);
             this.DataBindings.Add(new System.Windows.Forms.Binding("TopMost", global::ReflectiveCode.GMinder.Properties.Settings.Default, "OnTop", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "GReminder";
             this.Text = "GMinder";
             this.TopMost = global::ReflectiveCode.GMinder.Properties.Settings.Default.OnTop;
